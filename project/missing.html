@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+
+<head><title>What's in da fridge?</title>
+<link href="stylesheets/style.css" type="text/css" rel="stylesheet"/>
+<ul>
+  <li><a href= "/FridgeHome">Home</a> </li>
+  <li><a href = "/in">What's in</a></li>
+  <li><a href= "/missing">What's missing?</a></li>
+  <li><a href= "/logout">logout</a></li>
+</ul>
+</head>
+<body>
+<h2>Missing from the Fridge:</h2>
+<form action = "/missing" method = "post">
+  {%if  error == True%}
+  <h4>Error: nothing entered for deletion </h4>
+  {%endif%}
+  {%if  error2 == True%}
+  <h4>Error: no such item in list </h4>
+  {%endif%}
+  {%if  inOutList == True%}
+  <h4>Error: item already in list </h4>
+  {%endif%}
+  {%if  empty == True%}
+  <h4>Error: nothing entered to add </h4>
+  {%endif%}
+
+<fieldset max-width = 320>
+  <legend style="color:#333">Missing list:</legend>
+  <br/>
+{%for u in users%}
+  {%if u.name == currentUser%}
+  {%for i in u.outList %}
+  &nbsp{{i.name}} <br/>
+
+  {% endfor %}
+  {%endif%}
+{% endfor %}
+
+<br/>
+<p style="color:#333">
+  <p style = "font-weight: normal">
+  Item: <input type = "text" id = "item" name = "item"><br/><br/>
+</p>
+</p>
+  <p align="right">
+  <input  type = "submit" name = "add" value = "add" >
+  <input type = "submit" name = "delete" value = "delete" >
+</p>
+</fieldset>
+
+
+</body>
+
+</html>
+{% endautoescape %}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% autoescape true %}
+
+<html>
+<head><title>New User</title>
+<link href="stylesheets/style.css" type="text/css" rel="stylesheet"/>
+<ul>
+  <li><a href= "/">login</a></li>
+</ul>
+</head>
+<body>
+  {% if nameEmpty == True %}
+    <h6><strong>Error: name field empty</h6>
+  {% endif %}
+
+  {% if passEmpty == True %}
+    <h6><strong>Error: password field empty</h6>
+  {% endif %}
+
+  {% if free == False %}
+    <h6><strong>Error: name already taken</h6>
+  {% endif %}
+
+  {% if created == True %}
+    <h3><strong>User created: proceed to login page to log in</h3>
+  {% endif %}
+
+
+<h2>New User:</h2>
+
+<form action= '/newFridge' method = "post">
+<fieldset>
+<legend> New Fridge Sign Up:</legend>
+
+<b> Fridge name:</b><br/>
+<input type = "text" id= "userN" name = "userN">
+</br>
+</br>
+<b>Password:</b><br/>
+<input type = "password" id = "passW" name = "passW">
+<br/>
+<br/>
+
+
+<br/><br/>
+<input type= "submit" value="Sign Up">
+<br/>
+</fieldset>
+</form>
+
+</body>
+</html>
+{% endautoescape %}

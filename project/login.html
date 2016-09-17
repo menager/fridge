@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+<head><title>What's in the Fridge?</title>
+<link href="stylesheets/style.css" type="text/css" rel="stylesheet"/>
+<ul>
+  <li><a></a></li>
+</ul>
+</head>
+
+<body>
+  {% if badLog == True %}
+    <h6><strong>Error: Fill in all fields</h6>
+  {% endif %}
+
+  {% if badPass == True %}
+    <h6><strong>Error: incorrect  password</h6>
+  {% endif %}
+
+  {% if exist == False%}
+    <h6>Error: no such user</h6>
+  {% endif%}
+
+<h2>Login:</h2>
+
+<form action= '/' method = "post">
+<fieldset>
+<legend> Fridge login:</legend>
+<br/>
+<b> Fridge name:</b><br/>
+<input type = "text" id= "userN" name = "userN">
+</br>
+</br>
+<b>Password:</b><br/>
+<input type = "password" id = "passW" name = "passW">
+<br/>
+<br/>
+<b>Not a User?</b>
+<a href = "/newFridge"> create account</a>
+<br/><br/>
+<input type= "submit" value="login">
+<br/>
+</fieldset>
+</form>
+
+</body>
+</html>
+{% endautoescape %}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+<head><title>What's in the Fridge?</title></head>
+<link href="stylesheets/style.css" type="text/css" rel="stylesheet"/>
+<ul>
+  <li><a href= "/FridgeHome">Home</a> </li>
+  <li><a href = "/in">What's in</a></li>
+  <li><a href= "/missing">What's missing?</a></li>
+  <li><a href= "/logout">logout</a></li>
+</ul>
+</head>
+<body>
+<h2>
+  <br/>
+</h2>
+<fieldset style= "max-width: 520px">
+
+  <legend style = "font-size:x-large">Welcome! {{currentUser}}</legend>
+  <b><br/>
+    Use the navigation bar to take a look at what's going on in the fridge, or what's not if you'd rather!
+  </b>
+  <br/>
+
+</fieldset>
+</body>
+</html>
+{% endautoescape %}

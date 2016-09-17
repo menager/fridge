@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+<head><title>What's in da fridge?</title>
+<link href="stylesheets/style.css" type="text/css" rel="stylesheet"/>
+<ul>
+  <li><a href= "/FridgeHome">Home</a> </li>
+  <li><a href = "/in">What's in</a></li>
+  <li><a href= "/missing">What's missing?</a></li>
+  <li><a href= "/logout">logout</a></li>
+</ul>
+</head>
+<body>
+<h2>What's in the Fridge?:</h2>
+<form action = "/logout" method = "post">
+{%if yes != True and no != True%}
+<fieldset  max-width = 320px>
+
+  <legend style="color:#333">Do you wish to logout?:</legend>
+
+</p>
+  <p align="center">
+  <input  type = "submit" name = "yes" value = "yes" >
+  <input type = "submit" name = "no" value = "no" >
+</p>
+</fieldset>
+{%elif yes == True%}
+<h3> Successfully logged out</h3>
+<a href = "/">Return to login</a>
+{%else%}
+<a href= "/FridgeHome">Return home</a>
+{%endif%}
+</body>
+</html>
+
+
+{% endautoescape %}
